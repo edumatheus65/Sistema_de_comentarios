@@ -1,6 +1,17 @@
 <?php
 
-    
+    $db = 'mensagens';
+    $host = 'localhost';
+    $user = 'eduardo';
+    $pass = '';
+
+    try {
+        
+        $conn = new PDO("mysql:dbname=$db;host=localhost", $user, $pass); 
+
+    } catch (PDOException $e) {
+        echo "DEU RUIM" . $e->getMessage();
+    }
 
 ?>
 
@@ -45,6 +56,20 @@
 
 </fieldset>
 <br><br>
+
+<?php
+
+    $stmt = "SELECT * FROM comentarios ORDER BY data_msg DESC";
+    $stmt = $conn->query($stmt);
+
+    if($stmt->rowCount() > 0) {
+        foreach($stmt->fetchAll() as $mensagem)
+    }
+?>
+    <strong><?php echo $mensagem['nome']; ?></strong><br>
+    <?php echo $mensagem['msg']; ?>
+    <br>
+    
 
 <strong>Nome da Pessoa</strong>
 <p>Mensagem fica aqui:</p>
