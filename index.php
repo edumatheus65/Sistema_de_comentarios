@@ -13,6 +13,19 @@
         echo "DEU RUIM" . $e->getMessage();
     }
 
+    if(isset($_POST['nome']) && empty($_POST['nome']) == false) {
+
+        $nome = $_POST['nome'];
+        $comentario = $_POST['mensagem'];
+
+        $stmt = $conn->prepare("INSERT INTO comentarios SET nome = :nome, msg = :msg, data_msg = NOW()");
+        $stmt->bindValue(":nome", $nome);
+        $stmt->bindValue(":msg", $comentario);
+        $stmt->execute();
+
+
+    }
+
 ?>
 
 
