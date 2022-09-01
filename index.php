@@ -1,5 +1,7 @@
 <?php
 
+    
+
     $db = 'mensagens';
     $host = 'localhost';
     $user = 'eduardo';
@@ -12,6 +14,8 @@
     } catch (PDOException $e) {
         echo "DEU RUIM" . $e->getMessage();
     }
+
+    
 
     if(isset($_POST['nome']) && empty($_POST['nome']) == false) {
 
@@ -80,6 +84,7 @@
             ?>
             <strong><?php echo $mensagem['nome']; ?></strong><br>
             <?php echo $mensagem['msg']; ?>
+            <?php echo '<a href="delete.php?id='.$mensagem['id'].'">Excluir</a>' ?>
             <br>
             <hr>            
             <?php
