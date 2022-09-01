@@ -63,14 +63,17 @@
     $stmt = $conn->query($stmt);
 
     if($stmt->rowCount() > 0) {
-        foreach($stmt->fetchAll() as $mensagem)
+        foreach($stmt->fetchAll() as $mensagem):
+            ?>
+            <strong><?php echo $mensagem['nome']; ?></strong><br>
+            <?php echo $mensagem['msg']; ?>
+            <br>
+            <hr>            
+            <?php
+        endforeach;
+    } else {
+        echo "Não mensagens";
     }
 ?>
-    <strong><?php echo $mensagem['nome']; ?></strong><br>
-    <?php echo $mensagem['msg']; ?>
-    <br>
-    
 
-<strong>Nome da Pessoa</strong>
-<p>Mensagem fica aqui:</p>
-<hr>
+   
