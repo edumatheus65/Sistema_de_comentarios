@@ -84,7 +84,9 @@
             ?>
             <strong><?php echo $mensagem['nome']; ?></strong><br>
             <?php echo $mensagem['msg']; ?>
-            <?php echo '<a href="delete.php?id='.$mensagem['id'].'">Excluir</a>' ?>
+
+            <?php echo '<a href="delete.php?id='.$mensagem['id'].'">Excluir</a>'; ?>
+                        
             <br>
             <hr>            
             <?php

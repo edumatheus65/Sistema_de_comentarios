@@ -2,9 +2,9 @@
 
 require "index.php";
 
-if(isset($_POST['id']) && empty($_POST['id']) == false) {
+if(isset($_GET['id']) && empty($_GET['id']) == false) {
 
-    $id = ($_POST['id']);
+    $id = ($_GET['id']);
 
     $stmt = "DELETE FROM comentarios WHERE id = '$id'";
     $conn->query($stmt);
